@@ -4,6 +4,8 @@
 
 Clyde is a language for writing game dialogues. It supports branching, translations and interfacing with your game through variables and events.
 
+This repository holds the language definition which should be used to implement interpreters and parsers. Proposals can be sent via issues.
+
 You can play with the online editor [here](https://viniciusgerevini.github.io/clyde-js/).
 
 Here is a simple dialogue:
@@ -43,7 +45,7 @@ You can read the complete language definition with examples on [LANGUAGE.md](./L
 
 - Godot game engine plugin: [repository](https://github.com/viniciusgerevini/godot-clyde-dialogue).
 - JS/TS interpreter and CLI: [repository](https://github.com/viniciusgerevini/godot-clyde-dialogue).
+- Online Editor and Interpreter: [Playground page](https://viniciusgerevini.github.io/clyde-js/).
 - Vim/Neovim [syntax highlighting](https://github.com/viniciusgerevini/clyde.vim).
 - VSCode [syntax highlighting](https://github.com/viniciusgerevini/vscode-clyde).
-- Online Editor and Interpreter: [Playground page](https://viniciusgerevini.github.io/clyde-js/).
 
