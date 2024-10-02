@@ -246,10 +246,10 @@ Hello, sister. $LINE_001&pronoun
 
 ### Tags
 
-Use `#` + `[A-Za-z0-9_]` to set line tags:
+Use `#` + `[A-Za-z0-9_\-\.]` to set line tags:
 
 ```
-WHAT DID YOU DO! #yelling #scared
+WHAT DID YOU DO! #yelling #scared #something-else
 ```
 
 Output:
