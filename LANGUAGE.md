@@ -179,7 +179,7 @@ by indenting them after the speaker:
 Vinny:
     Multiple lines can be set with same speaker.
     You just need to indent them after the speaker line.
-    Grouping lines also work this way
+    Grouping lines also works
         by indenting the line further.
 ```
 
@@ -190,7 +190,7 @@ Output:
 // get content
 { type: 'line', speaker: 'Vinny', text: 'You just need to indent them after the speaker line.' }
 // get content
-{ type: 'line', speaker: 'Vinny', text: 'Grouping lines also work this way by indenting the line further.' }
+{ type: 'line', speaker: 'Vinny', text: 'Grouping lines also works by indenting the line further.' }
 ```
 
 ### Line ID
