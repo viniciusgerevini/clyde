@@ -43,10 +43,10 @@ dialogue.setVariable(name, value);
 dialogue.getVariable(name);
 
 // Set callback to be used when requesting external variables.
-onExternalVariableFetch(callback: ((name: string) => any) | undefined): void;
+dialogue.onExternalVariableFetch(callback: ((name: string) => any) | undefined): void;
 
 // Set callback to be used when an external variable is updated in the dialogue.
-onExternalVariableUpdate(callback: ((name: string, value: any) => void) | undefined): void;
+dialogue.onExternalVariableUpdate(callback: ((name: string, value: any) => void) | undefined): void;
 
 // Load a dictionary with translations.
 // when returning a line with line id defined, it looks first in this object
