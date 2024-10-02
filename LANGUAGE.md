@@ -1029,5 +1029,5 @@ In the example above, due to the conditional options, `OPTIONS_COUNT` is 2. If m
 
 That's pretty much all features implemented. You can check the `/examples` folder for more examples.
 
-All examples on this page are valid dialogues that can be run on the live [interpreter](https://viniciusgerevini.github.io/clyde/).
+All examples on this page are valid dialogues that can be ran     on the live [interpreter](https://viniciusgerevini.github.io/clyde-js/).
 
