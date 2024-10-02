@@ -44,7 +44,7 @@ You can read the complete language definition with examples on [LANGUAGE.md](./L
 ## Tools
 
 - Godot game engine plugin: [repository](https://github.com/viniciusgerevini/godot-clyde-dialogue).
-- JS/TS interpreter and CLI: [repository](https://github.com/viniciusgerevini/godot-clyde-dialogue).
+- JS/TS interpreter and CLI: [repository](https://github.com/viniciusgerevini/clyde-js).
 - Online Editor and Interpreter: [Playground page](https://viniciusgerevini.github.io/clyde-js/).
 - Vim/Neovim [syntax highlighting](https://github.com/viniciusgerevini/clyde.vim).
 - VSCode [syntax highlighting](https://github.com/viniciusgerevini/vscode-clyde).
