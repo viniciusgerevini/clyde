@@ -17,7 +17,12 @@ Vinny:
     Grouping lines also work this way
         by indenting the line further.
 ```
+- Allow linking files to use blocks defined in different files:
+```
+@link shopkeeper
 
+-> @shopkeeper.greeting
+```
 ## 3.0.0 (2024-02-14)
 
 ### Breaking changes
