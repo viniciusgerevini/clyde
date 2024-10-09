@@ -1,6 +1,6 @@
 # Clyde
 
-Clyde is a language for writing game dialogues. It supports branching dialogues, translations and interfacing with your game through variables and events.
+Clyde is a language for writing game dialogues. It supports branching, translations and interfacing with your game through variables and events.
 
 It was heavily inspired by [Ink](https://github.com/inkle/ink), but it focuses on dialogues instead of narratives.
 
@@ -16,57 +16,37 @@ You can play with the online editor [here](https://viniciusgerevini.github.io/cl
 
 ## Interpreter's interface
 
-Even though this document is focused on the language itself, I think it's a good idea to give a basic overview of the interpreter's interface for a easier understanding. I'll use the JavaScript implementation for reference.
+Even though this document is focused on the language itself, I think it's a good idea to cover the basic interpreter's contract to make the examples clearer. I'll use the GDScript implementation for reference.
 
-``` javascript
-const dialogue = Interpreter(dialogueDocument);
+```gdscript
+# initialize the dialogue object
+var dialogue = ClydeDialogue.new()
 
-// Start or restart the dialogue from the beginning. Optional when no block provided.
-dialogue.start(blockName);
+# load a dialogue file
+dialogue.load_dialogue('my_dialogue')
 
-// Listen to events (variable changed, event triggered)
-dialogue.on(eventName, callback);
+# listen to events triggered
+dialogue.event_triggered.connect(_on_event_triggered)
 
-// Remove event listener
-dialogue.off(eventName, callback);
+# listen to internal variable changes
+dialogue.variable_changed.connect(_on_variable_changed)
 
-// Return next dialogue line
-dialogue.getContent();
+# setup external variable proxies. This will allow the dialogue to
+# access external variables and update them
+dialogue.on_external_variable_fetch(_on_external_variable_fetch)
+dialogue.on_external_variable_update(_on_external_variable_update)
 
-// Choose one of the available options (branch)
-dialogue.choose(index);
+# Call get content to return the next dialogue line
+dialogue.get_content()
 
-// Set variable to be used by the dialogue
-dialogue.setVariable(name, value);
-
-// Get value of variables set in the dialogue
-dialogue.getVariable(name);
-
-// Set callback to be used when requesting external variables.
-dialogue.onExternalVariableFetch(callback: ((name: string) => any) | undefined): void;
-
-// Set callback to be used when an external variable is updated in the dialogue.
-dialogue.onExternalVariableUpdate(callback: ((name: string, value: any) => void) | undefined): void;
-
-// Load a dictionary with translations.
-// when returning a line with line id defined, it looks first in this object
-// for translation before returning the value. Useful for localisation.
-dialogue.loadDictionary(dictionary);
-
-// Return all variables and internal variables. Useful for persisting the dialogue's internal data,
-// such as options already choosen and random variations states.
-dialogue.getData();
-
-// Load internal data
-dialogue.loadData(data);
-
-// clear all internal data
-dialogue.clearData();
+# When the current dialogue line is a branch (options),
+# you can call this method to choose one of them
+dialogue.choose(index)
 ```
 
-The main methods used are `getContent()` and `choose(int)`.
+The main methods used are `get_content()` and `choose(int)`.
 
-`getContent()` returns the next dialogue line. It may return one of the following types:
+`get_content()` returns the next dialogue line. It may return one of the following types:
 
 **line**: A simple dialogue line.
 ```javascript
@@ -89,14 +69,14 @@ When `options` are available, you can choose one of them by passing its index to
 dialogue.choose(0);
 ```
 
-When in an options state, any subsequent call to `getContent()` will return the same options object, until a choice is made.
+When in an options state, any subsequent call to `get_content()` will return the same options object, until a choice is made.
 
-**end**: This means the dialogue has reached an end. Any subsequent call to `getContent` will return an end object.
+**end**: This means the dialogue has reached an end. Any subsequent call to `get_content` will return an end object.
 ```javascript
 { type: 'end' }
 ```
 
-Currently there are two interpreter implementations: a [JavaScript version](), and a [Godot's GDScript version](https://github.com/viniciusgerevini/godot-clyde-dialogue). Check the respective links for more details on how to use them. They expose similar interfaces, but there are some differences due to language standards and how each engine handles events and localisation.
+Currently there are two interpreter implementations: a [JavaScript version](https://github.com/viniciusgerevini/clyde-js), and a [Godot's GDScript version](https://github.com/viniciusgerevini/godot-clyde-dialogue). Check the respective links for more details on how to use them. They expose similar interfaces, but there are some differences due to language standards and how each engine handles events and localisation.
 
 
 ## Basics
@@ -249,7 +229,7 @@ Hello, sister. $LINE_001&pronoun
 Use `#` + `[A-Za-z0-9_\-\.]` to set line tags:
 
 ```
-WHAT DID YOU DO! #yelling #scared #something-else
+WHAT DID YOU DO! #yelling #scared
 ```
 
 Output:
@@ -499,7 +479,7 @@ Output
 }
 ```
 
-This is not always the desired behaviour. For that, you can use `+` for sticky options:
+This is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options:
 
 ```
 + Option a
@@ -647,7 +627,7 @@ npc: Well! That's too complicated...
 
 ```
 
-To keep the progression in the main block, you should use a divert to parent `<-` inside the block.
+To resume the progression on the caller block, you should use a divert to parent `<-`.
 
 ```
 npc: What do you want to do?
@@ -979,7 +959,7 @@ This can be used with variables defined internally or externally.
 
 External variables can be accessed using the `@` prefix. They are saved outside the dialogue data and the interpreter should provide callbacks to fetch and update these variables.
 
-They are useful when dealing with data that belongs to your game and shouldn't be persisted with the dialogue. They can be set and used in the dialogue like this:
+They are useful when dealing with data that belongs to your game and shouldn't be persisted within the dialogue data. They can be set and used in the dialogue like this:
 
 ```
 -- set
@@ -994,7 +974,7 @@ Hello, %@player_name%!
 
 Here is an example on how the callbacks to fetch and update the data can be used:
 
-```
+```typescript
 dialogue.onExternalVariableFetch((name: string): any => {
     return my_persistence_object[name];
 });
