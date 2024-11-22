@@ -4,7 +4,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 Check [LANGUAGE.md](./LANGUAGE.md) for latest documentation.
 
-## 3.0.1 (2024-10-01)
+
+## 3.2.0 (2024-11-22)
+
+### Changed
+
+- Events accept parameters:
+```
+{ trigger event_without_params }
+{ trigger event_with_params(param1, param2) }
+{ trigger another_event_example("some text", true, param1 + param 2 + 1) }
+```
+
+
+## 3.1.0 (2024-10-01)
 
 ### Added
 

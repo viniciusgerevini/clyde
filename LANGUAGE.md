@@ -922,6 +922,19 @@ You can trigger events using the `trigger` block.
 * deny { trigger denied }
 ```
 
+Events also accept parameters, like this:
+```
+-- you can pass literal arguments
+{ trigger my_event("some text", 1, true) }
+
+-- you can pass variables
+{ trigger my_event(this_is_a_variable) }
+
+-- and even expressions
+{ trigger my_event(some_important_count + something_else) }
+```
+
+
 Your interpreter will expose a way to listen to these events. This will vary depending on implementation. To use the JavaScript interpreter as example:
 
 ```javascript
