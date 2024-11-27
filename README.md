@@ -49,3 +49,8 @@ You can read the complete language definition with examples on [LANGUAGE.md](./L
 - Vim/Neovim [syntax highlighting](https://github.com/viniciusgerevini/clyde.vim).
 - VSCode [syntax highlighting](https://github.com/viniciusgerevini/vscode-clyde).
 
+## Contact
+
+If you are looking for help on how things work, general questions, ideas to improve the language or just want to share something, please use our main discussion forum: https://github.com/viniciusgerevini/clyde/discussions
+
+I also would love to see what games you've been making with Clyde. If you have any released game using clyde, share it with us on: https://github.com/viniciusgerevini/clyde/discussions/3
