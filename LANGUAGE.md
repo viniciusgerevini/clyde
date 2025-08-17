@@ -442,44 +442,7 @@ Output
 
 ### Sticky options
 
-Option's default behaviour is to be removed from the list once used:
-
-```
-* Option a
-    A
-* Option b
-    B
-
-```
-
-Output
-```javascript
-// get content
-{
-    type: 'options',
-    options: [
-        { label: 'Option a' },
-        { label: 'Option b' }
-    ]
-}
-
-// choose 0
-
-// get content
-{ type: 'line', text: 'A'}
-
-// restart dialogue
-
-// get content
-{
-    type: 'options',
-    options: [
-        { label: 'Option b' }
-    ]
-}
-```
-
-This is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options:
+Option's default behaviour is to be removed from the list once used, but this is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options.
 
 ```
 + Option a
@@ -801,7 +764,6 @@ Now that you know the basics, you can step up your branching game by using varia
 
 Logic blocks may contain:
 
-
 **Logical operators:**: Equals `==` or `is`, Not equals: `!=` or `isnt`, Not: `!` or `not`, Greater, Less, etc: `>`, `<`, `>=`, `<=`.
 
 **Math operators**: sum `+`, subtract `-`,  multiply `*`, divide `/`,  power `^`,  modulo/remainder `%`.
@@ -810,7 +772,7 @@ Logic blocks may contain:
 
 **Literals**: Number (`100`, `1.5`), String (`"some text"`, `'some text'`), Boolean (`true`, `false`), Null (`null`).
 
-**Keywords**: `set`, `trigger`, `when`.
+**Keywords**: `set`, `trigger`, `when`, `match`.
 
 There are three types of logic blocks: assignments, conditions, and triggers.
 
@@ -909,6 +871,38 @@ say something { set something = true } { when something }
 -- Condition is checked after assignment. This line will be returned.
 { set something = true } say something { when something }
 
+```
+
+### Match conditions
+
+You can use the `match` keyword to create a condition with multiple branches. Only one branch is executed.
+
+```
+{ match skill_type:
+    'melee':
+        Hero:   I need to get closer!
+        Helper: Wouldn't that be dangerous?
+    'ranged':
+        Hero: I reckon we can hit it from here.
+        Helper: This sounds wise!
+    else:
+        Hero: Not sure what I'm supposed to do
+        Helper: Just wing it!
+}
+```
+
+As seen above, the `else` keyword can be used to define the branch that should be executed if none of the previous values match.
+
+When passing a boolean to `match`, you can use the `then` keyword to match `true`, allowing simpler binary checks:
+
+```
+{ match is_happy:
+    then:
+        I'm happy today.
+        Let's party!
+    else:
+        I'm not sure how I feel.
+}
 ```
 
 ### Triggers
