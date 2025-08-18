@@ -885,23 +885,20 @@ You can use the `match` keyword to create a condition with multiple branches. On
     'ranged':
         Hero: I reckon we can hit it from here.
         Helper: This sounds wise!
-    else:
+    default:
         Hero: Not sure what I'm supposed to do
         Helper: Just wing it!
 }
 ```
 
-As seen above, the `else` keyword can be used to define the branch that should be executed if none of the previous values match.
+As seen above, the `default` keyword can be used to define the branch that should be executed if none of the previous values match.
 
-When passing a boolean to `match`, you can use the `then` keyword to match `true`, allowing simpler binary checks:
+Match blocks accept complex conditions and inline branch content:
 
 ```
-{ match is_happy:
-    then:
-        I'm happy today.
-        Let's party!
-    else:
-        I'm not sure how I feel.
+{ match hp > 10 and can_heal:
+    true: -> healing conversation
+    false: -> another block.
 }
 ```
 
