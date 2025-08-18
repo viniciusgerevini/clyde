@@ -878,7 +878,7 @@ say something { set something = true } { when something }
 You can use the `match` keyword to create a condition with multiple branches. Only one branch is executed.
 
 ```
-{ match skill_type:
+{ match skill_type
     'melee':
         Hero:   I need to get closer!
         Helper: Wouldn't that be dangerous?
@@ -896,7 +896,7 @@ As seen above, the `default` keyword can be used to define the branch that shoul
 Match blocks accept complex conditions and inline branch content:
 
 ```
-{ match hp > 10 and can_heal:
+{ match hp > 10 and can_heal
     true: -> healing conversation
     false: -> another block.
 }
