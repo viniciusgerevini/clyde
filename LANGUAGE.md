@@ -57,9 +57,9 @@ The main methods used are `get_content()` and `choose(int)`.
 ```javascript
 {
     type: 'options',
-    name: 'What do you want to talk about?',
+    text: 'What do you want to talk about?',
     speaker: 'NPC',
-    options: [{ label: 'Life' }, { label: 'The Universe' }, { label: 'Everything else' }]
+    options: [{ text: 'Life' }, { text: 'The Universe' }, { text: 'Everything else' }]
 }
 ```
 
@@ -286,8 +286,8 @@ Output:
 {
     type: 'options',
     options: [
-        { label: 'yes' },
-        { label: 'no' },
+        { text: 'yes' },
+        { text: 'no' },
     ]
 }
 
@@ -317,8 +317,8 @@ Output:
 {
     type: 'options',
     options: [
-        { label: 'yes' },
-        { label: 'no' },
+        { text: 'yes' },
+        { text: 'no' },
     ]
 }
 
@@ -347,8 +347,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'I need to think about that' },
-        { label: 'Simple option' },
+        { text: 'I need to think about that' },
+        { text: 'Simple option' },
     ]
 }
 
@@ -387,8 +387,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a - has nested options' },
-        { label: 'Option b - starts in another line' }
+        { text: 'Option a - has nested options' },
+        { text: 'Option b - starts in another line' }
     ]
 }
 
@@ -398,8 +398,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Yes' },
-        { label: 'No' }
+        { text: 'Yes' },
+        { text: 'No' }
     ]
 }
 
@@ -427,10 +427,10 @@ Output
 // get content
 {
     type: 'options',
-    name: 'Do you like turtles?',
+    text: 'Do you like turtles?',
     options: [
-        { label: 'Yes' },
-        { label: 'No' }
+        { text: 'Yes' },
+        { text: 'No' }
     ]
 }
 
@@ -458,8 +458,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a' },
-        { label: 'Option b' },
+        { text: 'Option a' },
+        { text: 'Option b' },
     ]
 }
 
@@ -474,8 +474,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a' },
-        { label: 'Option b' },
+        { text: 'Option a' },
+        { text: 'Option b' },
     ]
 }
 
@@ -499,8 +499,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: "Let's talk about it." },
-        { label: "That's all for today." },
+        { text: "Let's talk about it." },
+        { text: "That's all for today." },
     ]
 }
 
@@ -549,11 +549,11 @@ npc: I don't have time for this...
 // get content
 {
     type: 'options',
-    name: 'What do you want to talk about?'
+    text: 'What do you want to talk about?'
     options: [
-        { label: 'Life' },
-        { label: 'The universe' },
-        { label: 'Everything else' }
+        { text: 'Life' },
+        { text: 'The universe' },
+        { text: 'Everything else' }
     ]
 }
 
