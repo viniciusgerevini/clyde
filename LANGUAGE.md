@@ -896,9 +896,9 @@ As seen above, the `default` keyword can be used to define the branch that shoul
 Match blocks accept complex conditions and inline branch content:
 
 ```
-{ match hp > 10 and can_heal
+{ match hp < 10 and can_heal
     true: -> healing conversation
-    false: -> another block.
+    false: -> another block
 }
 ```
 
