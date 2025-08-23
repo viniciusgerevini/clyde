@@ -22,8 +22,8 @@ Output:
 {
     type: 'options',
     options: [
-        { label: 'yes' },
-        { label: 'no' },
+        { text: 'yes' },
+        { text: 'no' },
     ]
 }
 
@@ -53,8 +53,8 @@ Output:
 {
     type: 'options',
     options: [
-        { label: 'yes' },
-        { label: 'no' },
+        { text: 'yes' },
+        { text: 'no' },
     ]
 }
 
@@ -83,8 +83,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'I need to think about that' },
-        { label: 'Simple option' },
+        { text: 'I need to think about that' },
+        { text: 'Simple option' },
     ]
 }
 
@@ -123,8 +123,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a - has nested options' },
-        { label: 'Option b - starts in another line' }
+        { text: 'Option a - has nested options' },
+        { text: 'Option b - starts in another line' }
     ]
 }
 
@@ -134,8 +134,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Yes' },
-        { label: 'No' }
+        { text: 'Yes' },
+        { text: 'No' }
     ]
 }
 
@@ -163,10 +163,10 @@ Output
 // get content
 {
     type: 'options',
-    name: 'Do you like turtles?',
+    text 'Do you like turtles?',
     options: [
-        { label: 'Yes' },
-        { label: 'No' }
+        { text: 'Yes' },
+        { text: 'No' }
     ]
 }
 
@@ -178,44 +178,7 @@ Output
 
 ## Sticky options
 
-Option's default behaviour is to be removed from the list once used:
-
-```
-* Option a
-    A
-* Option b
-    B
-
-```
-
-Output
-```javascript
-// get content
-{
-    type: 'options',
-    options: [
-        { label: 'Option a' },
-        { label: 'Option b' }
-    ]
-}
-
-// choose 0
-
-// get content
-{ type: 'line', text: 'A'}
-
-// restart dialogue
-
-// get content
-{
-    type: 'options',
-    options: [
-        { label: 'Option b' }
-    ]
-}
-```
-
-This is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options:
+Option's default behaviour is to be removed from the list once used, but this is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options.
 
 ```
 + Option a
@@ -231,8 +194,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a' },
-        { label: 'Option b' },
+        { text: 'Option a' },
+        { text: 'Option b' },
     ]
 }
 
@@ -247,8 +210,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a' },
-        { label: 'Option b' },
+        { text: 'Option a' },
+        { text: 'Option b' },
     ]
 }
 
@@ -272,8 +235,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: "Let's talk about it." },
-        { label: "That's all for today." },
+        { text: "Let's talk about it." },
+        { text: "That's all for today." },
     ]
 }
 

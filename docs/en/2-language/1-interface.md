@@ -41,9 +41,9 @@ The main methods used are `get_content()` and `choose(int)`.
 ```javascript
 {
     type: 'options',
-    name: 'What do you want to talk about?',
+    text: 'What do you want to talk about?',
     speaker: 'NPC',
-    options: [{ label: 'Life' }, { label: 'The Universe' }, { label: 'Everything else' }]
+    options: [{ text: 'Life' }, { text: 'The Universe' }, { text: 'Everything else' }]
 }
 ```
 

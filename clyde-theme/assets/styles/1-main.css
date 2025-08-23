@@ -32,6 +32,10 @@
 	color: var(--text-color);
 }
 
+html, body {
+	min-height: 100vh;
+}
+
 body {
 	background-color: var(--bg-color);
 }
@@ -332,6 +336,12 @@ h4 { font-size: 1em; }
 	color: var(--text-color);
 }
 
+.nav-menu .nav-item a {
+	display: flex;
+	align-items: center;
+	min-height: 40px;
+}
+
 .nav-menu .nav-item.expanded > a button::before,
 .nav-menu .nav-item.loaded-expanded > a button::before {
 	content: '\f107';
@@ -503,4 +513,28 @@ div[id^="signal-"] + p, div[id^="signal-"] + p + ul {
 
 .child-list a {
 	text-decoration: none;
+}
+
+.page-navigation {
+	width: 100%;
+	display: flex;
+
+	.previous {
+		flex-grow: 1;
+		text-align: left;
+		text-decoration: none;
+	}
+
+	.next {
+		flex-grow: 1;
+		text-align: right;
+		text-decoration: none;
+	}
+}
+
+.playground {
+	width: 100%;
+	height: 80vh;
+	max-width: initial;
+	margin-left: 360px;
 }

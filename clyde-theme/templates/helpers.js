@@ -69,3 +69,84 @@ export function fullPageTitle() {
 	}
 	return this.site.title;
 }
+
+/**
+ * Returns previous and next link HTML elements to be used
+ * in the page bottom navigation.
+ * It uses the navigationMenu links to find what is the previous and
+ * pages for the page provided
+ */
+export function getPageNavigationLinks(currentPage) {
+	const listStack = [
+		{ list: [this.navigationMenu], index: 0 },
+	]
+
+	let previousItem;
+	let nextItem;
+	let wasFound = false;
+
+	while (listStack.length > 0) {
+		const currentStack = listStack.length - 1;
+		const stack = listStack[currentStack];
+
+		while (stack.index < stack.list.length) {
+			const item = stack.list[stack.index];
+			stack.index += 1;
+
+			// skip anchors
+			if (item.level > 1) {
+				continue;
+			}
+
+			if (wasFound) {
+				nextItem = item;
+				break;
+			}
+
+			if (item.path === currentPage) {
+				wasFound = true;
+				if (item.children && item.children.length) {
+					for (let child of item.children) {
+						if (child.level === 1) {
+							nextItem = child;
+							break;
+						}
+					}
+					if (nextItem) {
+						break;
+					}
+				}
+			} else {
+				previousItem = item;
+				if (item.children && item.children.length) {
+					listStack.push({ list: item.children, index: 0 });
+					break;
+				}
+			}
+		}
+
+		if (wasFound && nextItem) {
+			break;
+		}
+
+		if (stack.index >= stack.list.length && currentStack == listStack.length - 1) {
+			listStack.pop();
+		}
+	}
+
+	if (!wasFound) {
+		return "";
+	}
+
+	let links = "";
+
+	if (previousItem) {
+		links += `<a href="${previousItem.path}" class="previous">Previous: ${previousItem.title}</a>`;
+	}
+
+	if (nextItem) {
+		links += `<a href="${nextItem.path}" class="next">Next: ${nextItem.title}</a>`;
+	}
+
+	return links;
+}

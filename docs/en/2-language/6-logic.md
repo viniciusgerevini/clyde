@@ -17,7 +17,7 @@ Logic blocks may contain:
 
 **Literals**: Number (`100`, `1.5`), String (`"some text"`, `'some text'`), Boolean (`true`, `false`), Null (`null`).
 
-**Keywords**: `set`, `trigger`, `when`.
+**Keywords**: `set`, `trigger`, `when`, `match`.
 
 There are three types of logic blocks: assignments, conditions, and triggers.
 
@@ -116,6 +116,34 @@ say something { set something = true } { when something }
 -- Condition is checked after assignment. This line will be returned.
 { set something = true } say something { when something }
 
+```
+## Match conditions
+
+You can use the `match` keyword to create a condition with multiple branches. Only one branch is executed.
+
+```
+{ match skill_type
+    'melee':
+        Hero:   I need to get closer!
+        Helper: Wouldn't that be dangerous?
+    'ranged':
+        Hero: I reckon we can hit it from here.
+        Helper: This sounds wise!
+    default:
+        Hero: Not sure what I'm supposed to do
+        Helper: Just wing it!
+}
+```
+
+As seen above, the `default` keyword can be used to define the branch that should be executed if none of the previous values match.
+
+Match blocks accept complex conditions and inline branch content:
+
+```
+{ match hp < 10 and can_heal
+    true: -> healing conversation
+    false: -> another block
+}
 ```
 
 ## Triggers

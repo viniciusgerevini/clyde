@@ -32,11 +32,11 @@ npc: I don't have time for this...
 // get content
 {
     type: 'options',
-    name: 'What do you want to talk about?'
+    text: 'What do you want to talk about?'
     options: [
-        { label: 'Life' },
-        { label: 'The universe' },
-        { label: 'Everything else' }
+        { text: 'Life' },
+        { text: 'The universe' },
+        { text: 'Everything else' }
     ]
 }
 
