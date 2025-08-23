@@ -538,3 +538,16 @@ div[id^="signal-"] + p, div[id^="signal-"] + p + ul {
 	max-width: initial;
 	margin-left: 360px;
 }
+
+.features-page {
+	img {
+		border-radius: 20px;
+	}
+
+	.section_separator {
+		max-width: 250px;
+		border: 2px solid var(--link-color);
+		opacity: 30%;
+		margin: 40px auto;
+	}
+}
