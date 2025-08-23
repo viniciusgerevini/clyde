@@ -35,9 +35,9 @@ The Wolf:   If I'm curt with you, it's because time is
 
 ---
 
-📘 Find out everything Clyde can do by reading the [Language reference](../en/2-language/index.md) docs.
+📘 Find out everything Clyde can do by reading the [Language reference](./2-language/index.md) docs.
 
-🤖 The [Godot plugin docs](../en/3-godot/index.md) will help you get your game up and running!
+🤖 The [Godot plugin docs](./3-godot/index.md) will help you get your game up and running!
 
 ---
 

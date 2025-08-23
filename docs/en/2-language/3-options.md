@@ -159,6 +159,7 @@ Do you like turtles?
 ```
 
 Output
+
 ```javascript
 // get content
 {
