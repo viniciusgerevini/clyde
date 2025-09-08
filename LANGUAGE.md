@@ -57,9 +57,9 @@ The main methods used are `get_content()` and `choose(int)`.
 ```javascript
 {
     type: 'options',
-    name: 'What do you want to talk about?',
+    text: 'What do you want to talk about?',
     speaker: 'NPC',
-    options: [{ label: 'Life' }, { label: 'The Universe' }, { label: 'Everything else' }]
+    options: [{ text: 'Life' }, { text: 'The Universe' }, { text: 'Everything else' }]
 }
 ```
 
@@ -286,8 +286,8 @@ Output:
 {
     type: 'options',
     options: [
-        { label: 'yes' },
-        { label: 'no' },
+        { text: 'yes' },
+        { text: 'no' },
     ]
 }
 
@@ -317,8 +317,8 @@ Output:
 {
     type: 'options',
     options: [
-        { label: 'yes' },
-        { label: 'no' },
+        { text: 'yes' },
+        { text: 'no' },
     ]
 }
 
@@ -347,8 +347,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'I need to think about that' },
-        { label: 'Simple option' },
+        { text: 'I need to think about that' },
+        { text: 'Simple option' },
     ]
 }
 
@@ -387,8 +387,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a - has nested options' },
-        { label: 'Option b - starts in another line' }
+        { text: 'Option a - has nested options' },
+        { text: 'Option b - starts in another line' }
     ]
 }
 
@@ -398,8 +398,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Yes' },
-        { label: 'No' }
+        { text: 'Yes' },
+        { text: 'No' }
     ]
 }
 
@@ -427,10 +427,10 @@ Output
 // get content
 {
     type: 'options',
-    name: 'Do you like turtles?',
+    text: 'Do you like turtles?',
     options: [
-        { label: 'Yes' },
-        { label: 'No' }
+        { text: 'Yes' },
+        { text: 'No' }
     ]
 }
 
@@ -442,44 +442,7 @@ Output
 
 ### Sticky options
 
-Option's default behaviour is to be removed from the list once used:
-
-```
-* Option a
-    A
-* Option b
-    B
-
-```
-
-Output
-```javascript
-// get content
-{
-    type: 'options',
-    options: [
-        { label: 'Option a' },
-        { label: 'Option b' }
-    ]
-}
-
-// choose 0
-
-// get content
-{ type: 'line', text: 'A'}
-
-// restart dialogue
-
-// get content
-{
-    type: 'options',
-    options: [
-        { label: 'Option b' }
-    ]
-}
-```
-
-This is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options:
+Option's default behaviour is to be removed from the list once used, but this is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options.
 
 ```
 + Option a
@@ -495,8 +458,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a' },
-        { label: 'Option b' },
+        { text: 'Option a' },
+        { text: 'Option b' },
     ]
 }
 
@@ -511,8 +474,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: 'Option a' },
-        { label: 'Option b' },
+        { text: 'Option a' },
+        { text: 'Option b' },
     ]
 }
 
@@ -536,8 +499,8 @@ Output
 {
     type: 'options',
     options: [
-        { label: "Let's talk about it." },
-        { label: "That's all for today." },
+        { text: "Let's talk about it." },
+        { text: "That's all for today." },
     ]
 }
 
@@ -586,11 +549,11 @@ npc: I don't have time for this...
 // get content
 {
     type: 'options',
-    name: 'What do you want to talk about?'
+    text: 'What do you want to talk about?'
     options: [
-        { label: 'Life' },
-        { label: 'The universe' },
-        { label: 'Everything else' }
+        { text: 'Life' },
+        { text: 'The universe' },
+        { text: 'Everything else' }
     ]
 }
 
@@ -801,7 +764,6 @@ Now that you know the basics, you can step up your branching game by using varia
 
 Logic blocks may contain:
 
-
 **Logical operators:**: Equals `==` or `is`, Not equals: `!=` or `isnt`, Not: `!` or `not`, Greater, Less, etc: `>`, `<`, `>=`, `<=`.
 
 **Math operators**: sum `+`, subtract `-`,  multiply `*`, divide `/`,  power `^`,  modulo/remainder `%`.
@@ -810,7 +772,7 @@ Logic blocks may contain:
 
 **Literals**: Number (`100`, `1.5`), String (`"some text"`, `'some text'`), Boolean (`true`, `false`), Null (`null`).
 
-**Keywords**: `set`, `trigger`, `when`.
+**Keywords**: `set`, `trigger`, `when`, `match`.
 
 There are three types of logic blocks: assignments, conditions, and triggers.
 
@@ -909,6 +871,35 @@ say something { set something = true } { when something }
 -- Condition is checked after assignment. This line will be returned.
 { set something = true } say something { when something }
 
+```
+
+### Match conditions
+
+You can use the `match` keyword to create a condition with multiple branches. Only one branch is executed.
+
+```
+{ match skill_type
+    'melee':
+        Hero:   I need to get closer!
+        Helper: Wouldn't that be dangerous?
+    'ranged':
+        Hero: I reckon we can hit it from here.
+        Helper: This sounds wise!
+    default:
+        Hero: Not sure what I'm supposed to do
+        Helper: Just wing it!
+}
+```
+
+As seen above, the `default` keyword can be used to define the branch that should be executed if none of the previous values match.
+
+Match blocks accept complex conditions and inline branch content:
+
+```
+{ match hp < 10 and can_heal
+    true: -> healing conversation
+    false: -> another block
+}
 ```
 
 ### Triggers

@@ -5,6 +5,21 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 Check [LANGUAGE.md](./LANGUAGE.md) for latest documentation.
 
 
+## 4.0.0 (unreleased)
+
+### Breaking changes
+
+- `match` is now a keyword when in the begining of a logic block.
+- Options `label` and `name` are now `text` for consistency. No need to recompile files, just update code usage.
+
+### Added
+
+- Added match conditions.
+
+### Changed
+
+- Options `label` and `name` are now `text` for consistency.
+
 ## 3.2.0 (2024-11-22)
 
 ### Changed
