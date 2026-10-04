@@ -883,10 +883,10 @@ serialize-javascript@^7.0.3:
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.1.2.tgz#0161010a0815dd7b7e011cbc5a3644850b8c2289"
   integrity sha512-GL2BWwVa6JydKO6l/ljVgjAZF4QJ3S7dWDWi53s5GZT8PJzD2fNxi67HANQGKAqPrwEpL5ba7gUBGi0Ls/sEoQ==
 
-shromp@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/shromp/-/shromp-0.1.0.tgz#3afcefc1fa5d97ce97561f7adea691f877bffc15"
-  integrity sha512-45N+unexKmPURPzxfuymG3Uj6BanOSApSOlsRSVGWmpJjR+wvgLlg7gMfJANGDexpPFDPv1Ai9ItH96a2EVIbA==
+shromp@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/shromp/-/shromp-0.1.1.tgz#de99f2f816d84383b6b60829cc7b51ba3b293cab"
+  integrity sha512-vdH/tiDaPaKKbPyMfe43vp/gB4alVoTaG6vQOz2Te9BTZsmOpFDYxc5CMOP4LunE/CXq+c40mrtQsN9ij5sZqw==
   dependencies:
     commander "^13.1.0"
     consola "^3.4.2"

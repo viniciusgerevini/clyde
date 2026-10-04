@@ -16,6 +16,6 @@
     "postcss": "^8.5.28",
     "rollup": "^4.63.4",
     "rollup-plugin-polyfill-node": "^0.13.0",
-    "shromp": "^0.1.0"
+    "shromp": "^0.1.1"
   }
 }

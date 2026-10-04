@@ -29,7 +29,7 @@
 				<p>
 					This quick reference covers all language features.
 				</p>
-			<div class="info-button"><a href="/en/language">Read more</a></div>
+			<div class="info-button"><a href="{{baseUrl}}en/language">Read more</a></div>
 		</div>
 
 	<div class="home-section-link">
@@ -38,7 +38,7 @@
 			<p>
 				Everything you need to know to use Clyde with Godot.
 			</p>
-			<div class="info-button"><a href="/en/godot">Read more</a></div>
+			<div class="info-button"><a href="{{baseUrl}}en/godot">Read more</a></div>
 	</div>
 
 	<div class="home-section-link">
@@ -47,7 +47,7 @@
 			<p>
 				Want to write and run Clyde with your favourite editor? These tools got you covered.
 			</p>
-			<div class="info-button"><a href="/en/tools">Read more</a></div>
+			<div class="info-button"><a href="{{baseUrl}}en/tools">Read more</a></div>
 	</div>
 
 	</div>
@@ -109,9 +109,9 @@ Clyde: Oh! OK! I get it! Feel free to explore the site on your own. #sad
 
 	const dialogue = ClydeInterpreter.createDialogue(content);
 
-	dialogue.setVariable("language_reference_page", "<a href='/en/language'>language reference page</a>")
-	dialogue.setVariable("godot_page", "<a href='/en/godot'>Godot section</a>")
-	dialogue.setVariable("tools_page", "<a href='/en/tools'>tools page</a>")
+	dialogue.setVariable("language_reference_page", "<a href='{{baseUrl}}en/language'>language reference page</a>")
+	dialogue.setVariable("godot_page", "<a href='{{baseUrl}}en/godot'>Godot section</a>")
+	dialogue.setVariable("tools_page", "<a href='{{baseUrl}}en/tools'>tools page</a>")
 
 	const speaker = document.getElementById('speaker');
 	const speakerAvatar = document.getElementById('speakerAvatar');
