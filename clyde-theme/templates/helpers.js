@@ -36,6 +36,13 @@ export function getNavClassWhenCurrent(navLink, currentFile) {
 	return navLink === currentFile ? "current" : "";
 };
 
+export function canonicalFileLink() {
+	return buildLink(
+		this.site.url,
+		this.currentFilePath.replace(this.baseUrl, ""),
+	);
+}
+
 export function buildLink(...args) {
 	const parts = args.filter((a) => typeof a === "string");
 	return parts.join("/").replaceAll(/\/+/g, "/");
