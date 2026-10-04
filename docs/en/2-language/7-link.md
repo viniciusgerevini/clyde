@@ -6,7 +6,7 @@ custom_page_class: lang_ref
 To organise your dialogues further, you can access blocks defined in other files by linking them using the `@link` keyword.
 
 Here is a simple example importing a `shopkeeper.clyde`
-```
+```clyde
 @link shopkeeper
 
 -> @shopkeeper.greeting

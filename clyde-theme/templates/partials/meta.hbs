@@ -19,6 +19,10 @@
 <title>{{{fullPageTitle}}}</title>
 
 {{#if (assetImage "favicon.ico")}}
+  <link rel="icon" type="image/png" sizes="96x96" href="{{assetImage "favicon-96x96.png"}}">
+  <link rel="icon" href="{{assetImage "favicon.svg"}}" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="{{assetImage "favicon.ico"}}">
+  <link rel="apple-touch-icon" href="{{assetImage "apple-touch-icon.png"}}">
   <link rel="shortcut icon" href="{{assetImage "favicon.ico"}}" type="image/x-icon" />
 {{/if}}
 

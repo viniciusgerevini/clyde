@@ -25,28 +25,31 @@ There are three types of logic blocks: assignments, conditions, and triggers.
 
 Besides setting variables using the interpreter method, you can set variables internally with assignment blocks. Assignment blocks need to start with the `set` keyword. Here are some examples:
 
-```
--- standalone
+```clyde
+-- assignment only line
 { set is_happy = true }
 
 -- after line
-some text here { set is_happy = true}
+some text here { set is_happy = true }
 
 -- before line
-{ set is_happy = true} some text here
+{ set is_happy = true } some text here
 
 -- both sides
 { set something = 1 } some text here { set something += 1 }
 
 -- multiple assignments
 some text here { set is_happy = true, is_naughty = false, a = b, b = 2 }
+
+-- for boolean true assignments, the value can be omitted
+{ set is_happy }
 ```
 
 Regardless of the position, the assignment will always be executed when the line is returned.
 
 The initializer assigment `?=` can be used when you wish to only set the variable if it's still unset.
 
-```
+```clyde
 { set count ?= 1 } -- count will be set to 1
 
 { set count ?= 2 } -- count will remain 1, as it's already set
@@ -56,7 +59,7 @@ The initializer assigment `?=` can be used when you wish to only set the variabl
 
 Conditions are used to control which lines should be shown. They do not require any special keyword, but you can optionally use `when` to explicitly show that the block is a condition. Examples:
 
-```
+```clyde
 { set something = true }
 { set gender = "female" }
 
@@ -92,18 +95,17 @@ some text here { something && a == b || b >= c && ! v }
     one line
     another line
     yet another line
-
 ```
 
 As you may have noticed, you can't mix assignments and conditions in the same block. However, you can define multiple blocks in the same line, like this:
 
-```
+```clyde
 say something { when not something } { set something = true }
 ```
 
 Just be aware that order matters. i.e.
 
-```
+```clyde
 -- Condition is checked before assignment. This line won't be returned.
 say something { when something } { set something = true }
 
@@ -115,13 +117,12 @@ say something { set something = true } { when something }
 
 -- Condition is checked after assignment. This line will be returned.
 { set something = true } say something { when something }
-
 ```
 ## Match conditions
 
 You can use the `match` keyword to create a condition with multiple branches. Only one branch is executed.
 
-```
+```clyde
 { match skill_type
     'melee':
         Hero:   I need to get closer!
@@ -139,7 +140,7 @@ As seen above, the `default` keyword can be used to define the branch that shoul
 
 Match blocks accept complex conditions and inline branch content:
 
-```
+```clyde
 { match hp < 10 and can_heal
     true: -> healing conversation
     false: -> another block
@@ -152,13 +153,13 @@ There may be cases where you'd want your game to be notified that something happ
 
 You can trigger events using the `trigger` block.
 
-```
+```clyde
 * allow { trigger allowed }
 * deny { trigger denied }
 ```
 
 Events also accept parameters, like this:
-```
+```clyde
 -- you can pass literal arguments
 { trigger my_event("some text", 1, true) }
 
@@ -194,7 +195,7 @@ dialogue.on(Clyde.VARIABLE_CHANGED, (name, value, previousValue) => {
 
 You can use values from variables in your text by referencing them with `%` `%`.
 
-```
+```clyde
 { set playerName = 'Vini' }
 Hello, %playerName%! Long time no see.
 ```
@@ -209,7 +210,7 @@ External variables can be accessed using the `@` prefix. They are saved outside 
 
 They are useful when dealing with data that belongs to your game and shouldn't be persisted within the dialogue data. They can be set and used in the dialogue like this:
 
-```
+```clyde
 -- set
 { set @hp = 10 }
 
@@ -232,23 +233,3 @@ dialogue.onExternalVariableUpdate((name: string, value: any): void => {
 });
 
 ```
-
-## Special variables
-
-### OPTIONS_COUNT
-
-`OPTIONS_COUNT` contains the number of options available in an option list.
-
-For example:
-
-```
-{ set hp = 50, mp = 30 }
-
-You have %OPTIONS_COUNT% available
-    + { hp < 30 } Give me health!
-    + { mp == 100 } I'm fully loaded!
-    + { mp < 50 } Give me mana!
-    + { OPTIONS_COUNT > 1 } I'm fine. Thanks!
-Ok
-```
-In the example above, due to the conditional options, `OPTIONS_COUNT` is 2. If mp were between 50 and 99, `OPTIONS_COUNT` would be 1, making the last condition false, and skipping all options altogether.

@@ -3,9 +3,9 @@ template: page-with-child-list
 -->
 # Helpers
 
-As seen in the [usage](../2-usage.md) section, the Clyde interpreter has as simple interface giving you full control on how to display and handle your dialogues. This allows endless possibilities, which might be overwhelming for new developers or people on a rush.
+As seen in the [usage](../2-usage.md) section, the Clyde interpreter has a simple interface giving you full control on how to display and handle your dialogues. This allows endless possibilities, which might be overwhelming for new developers or people in a hurry.
 
-To help you quick start a project, I included a few helpers with this plugin. By enabling the helpers option in `ProjectSettings`, a `Dialogue` singleton and a `ClydeDialogueConfig` node will be available, allowing a quick start with no much effort.
+To help you kickstart a project I included a few helpers with this plugin. By enabling the helpers option in `ProjectSettings`, a `Dialogue` singleton and a `ClydeDialogueConfig` node will be available, allowing a quick start with no much effort.
 
 You can find usage examples in the [addon examples folder](https://github.com/viniciusgerevini/godot-clyde-dialogue/tree/godot_4/addons/clyde/examples).
 

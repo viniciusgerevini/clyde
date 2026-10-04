@@ -1,6 +1,6 @@
 # Interpreter's interface
 
-Even though this document is focused on the language itself, I think it's a good idea to start by covering the basic interpreter's contract. I'll use the GDScript implementation for reference.
+Even though this document is focused on the language itself, I think it's a good idea to start by covering the basic interpreter's contract. This will help you understand better how the features are executed. I'll use the GDScript implementation for reference, but all interpreters will have the same API contract, just following the specific language conventions.
 
 ```gdscript
 # initialize the dialogue object
@@ -60,5 +60,5 @@ When in an options state, any subsequent call to `get_content()` will return the
 { type: 'end' }
 ```
 
-Currently there are two interpreter implementations: a [JavaScript version](https://github.com/viniciusgerevini/clyde-js), and a [Godot's GDScript version](https://github.com/viniciusgerevini/godot-clyde-dialogue). Check the respective links for more details on how to use them. They expose similar interfaces, but there are some differences due to language standards and how each engine handles events and localisation.
+Currently there are two interpreter implementations: a [JavaScript version](../4-tools/4-node-libraries.md), and a [Godot's GDScript version](../3-godot/index.md). Check the respective links for more details on how to use them. They expose similar interfaces, but there are some differences due to language standards and how each engine handles events and localisation.
 

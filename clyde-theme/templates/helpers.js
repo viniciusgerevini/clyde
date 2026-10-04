@@ -20,7 +20,7 @@ export function getNavCurrentState(navLink, currentFile) {
 	const navLinkWithoutIndex = navLink.replace("/index.html", "");
 	const currentFileWithoutIndex = currentFile.replace("/index.html", "");
 
-	if (currentFileWithoutIndex.split("/").length === 2) {
+	if (currentFileWithoutIndex.split("/").length === 1) {
 		return;
 	}
 

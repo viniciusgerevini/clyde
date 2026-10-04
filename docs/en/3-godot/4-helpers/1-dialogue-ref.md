@@ -141,5 +141,3 @@ void <b>on_external_variable_update</b>(callback: Callable)
 
 Set callback to be used when an external variable is updated in the dialogue
 
----
-

@@ -1,6 +1,6 @@
 <!--
-page_title: Playground
+page_title: Online Editor
 template: playground
 custom_page_class: playground
 -->
-# Playground
+# Online Editor
