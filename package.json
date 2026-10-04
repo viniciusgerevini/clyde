@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "scripts": {
+    "build:interpreter": "rollup -c",
+    "build:docs": "shromp build",
+    "build:languageref": "node ./build/create_language_docs_md.js"
+  },
+  "dependencies": {
+    "@clyde-lang/interpreter": "^5.0.1",
+    "@clyde-lang/parser": "^2.7.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "autoprefixer": "^10.6.1",
+    "cssnano": "^9.2.2",
+    "marked": "^18.0.14",
+    "postcss": "^8.5.28",
+    "rollup": "^4.63.4",
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "shromp": "^0.1.1"
+  }
+}

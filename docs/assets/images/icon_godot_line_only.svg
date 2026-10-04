@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="77"
+   height="71"
+   viewBox="0 0 77 71"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="icon_godot_line_only.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.9191129"
+     inkscape:cx="88.211731"
+     inkscape:cy="-5.4811173"
+     inkscape:window-width="1710"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="43"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M14.9291 23.9699C13.9291 26.9699 12.4291 29.9699 11.9291 32.9699C11.4291 38.9699 11.4291 43.9699 11.9291 48.9699C11.9291 58.9699 26.9291 59.9699 38.9291 59.9699C50.9291 59.9699 65.9291 58.9699 65.9291 48.9699C66.4291 43.9699 66.4291 38.9699 65.9291 32.9699C65.4291 29.9699 63.9291 26.9699 62.9291 23.9699C61.9291 23.1699 61.9291 22.2699 60.9291 21.9699C61.2291 18.9699 62.2291 15.9699 61.9291 12.9699C59.4291 12.6699 58.4291 11.6699 55.9291 11.9699C55.7291 14.4699 54.7291 17.4699 54.9291 19.9699C53.9291 19.4699 50.9291 18.4699 49.9291 17.9699V8.96993C47.4291 8.66993 45.4291 7.66993 42.9291 7.96993C42.9291 10.9699 41.9291 13.9699 41.9291 16.9699H35.9291C35.9291 13.9699 34.9291 10.9699 34.9291 7.96993C32.4291 7.66993 30.4291 8.66993 27.9291 8.96993V17.9699L23.9291 19.9699C24.1291 17.4699 23.1291 14.4699 22.9291 11.9699C20.4291 11.6699 18.4291 12.6699 15.9291 12.9699C15.6291 15.9699 16.6291 18.9699 16.9291 21.9699C15.9291 22.2699 15.9291 23.1699 14.9291 23.9699Z"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path2" />
+  <path
+     d="M24.78 25.9921C27.98 26.2921 30.58 28.4921 30.28 31.4921C29.98 34.4921 27.78 37.2921 24.78 36.9921C21.58 36.6921 18.98 34.4921 19.28 31.4921C19.58 28.4921 21.78 25.6921 24.78 25.9921Z"
+     fill="black"
+     id="path3" />
+  <path
+     d="M49.78 25.9921C52.98 26.2921 55.58 28.4921 55.28 31.4921C54.98 34.4921 52.78 37.2921 49.78 36.9921C46.58 36.6921 43.98 34.4921 44.28 31.4921C44.58 28.4921 46.78 25.6921 49.78 25.9921Z"
+     fill="black"
+     id="path4" />
+  <path
+     d="M37.2564 32.97C37.5564 34.47 37.5564 36.47 37.7564 37.97"
+     stroke="black"
+     stroke-width="3.5"
+     stroke-linecap="round"
+     id="path5" />
+  <path
+     d="M12.7564 42.97L23.2608 43.97V48.97H32.1612L33.2564 43.97H42.7564L43.3517 48.97H52.252V43.97L63.423 42.97"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path6" />
+</svg>

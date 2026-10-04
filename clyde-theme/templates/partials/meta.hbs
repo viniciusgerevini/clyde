@@ -1,0 +1,28 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+<link rel="canonical" href="{{canonicalFileLink}}" />
+<meta name="description" content="{{ pageDescriptionWithFallback }}">
+<meta name="keywords" content="{{ pageKeywordsWithFallback }}">
+
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{{fullPageTitle}}}" />
+<meta property="og:description" content="{{{ pageDescriptionWithFallback }}}" />
+<meta property="og:url" content="{{ buildLink site.url currentFilePath }}" />
+<meta property="og:image" content="{{ pageImageWithFallback }}" />
+
+
+<title>{{{fullPageTitle}}}</title>
+
+{{#if (assetImage "favicon.ico")}}
+  <link rel="icon" type="image/png" sizes="96x96" href="{{assetImage "favicon-96x96.png"}}">
+  <link rel="icon" href="{{assetImage "favicon.svg"}}" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="{{assetImage "favicon.ico"}}">
+  <link rel="apple-touch-icon" href="{{assetImage "apple-touch-icon.png"}}">
+  <link rel="shortcut icon" href="{{assetImage "favicon.ico"}}" type="image/x-icon" />
+{{/if}}
+

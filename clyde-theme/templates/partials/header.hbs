@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{locale}}" data-theme="light">
+  <head>
+    {{>meta}}
+    {{!-- <!-- Prevent flashing white on dark mode while styles are being loaded --> --}}
+    {{!-- <style> --}}
+    {{!--   @media (prefers-color-scheme: dark) { --}}
+    {{!--     body { --}}
+    {{!--       background-color: rgb(32, 35, 38); --}}
+    {{!--     } --}}
+    {{!--   } --}}
+    {{!-- </style> --}}
+    {{!-- <script> --}}
+    {{!--   var baseUrl = "{{baseUrl}}"; --}}
+    {{!--   // load theme earlier --}}
+    {{!--   (function() { --}}
+    {{!--     document.querySelector("html").setAttribute("data-theme", localStorage.getItem("theme")); --}}
+    {{!--   }()); --}}
+    {{!-- </script> --}}
+
+    {{#each assets.styles}}
+      <link rel="stylesheet" href="{{this}}" type="text/css"/>
+    {{/each}}
+  </head>
+<body>
+<header class="page-header">
+  {{!-- <div class="site-config">
+    <div class="selector site-theme-selector">
+      <select name="theme" id="siteThemeSelector">
+        <option value="auto">Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  --}}
+
+    {{!-- {{#if version }} --}}
+    {{!--   <div class="selector doc-version-selector"> --}}
+    {{!--     <select name="version" id="versionSelector"> --}}
+    {{!--       <option value="{{version}}">{{version}}</option> --}}
+    {{!--     </select> --}}
+    {{!--   </div> --}}
+    {{!-- {{/if}} --}}
+  {{!-- </div> --}}
+</header>
+<div class="page-bd">

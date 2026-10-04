@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="86"
+   height="72"
+   viewBox="0 0 86 72"
+   fill="none"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="icon_tools_line.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.6728463"
+     inkscape:cx="40.59343"
+     inkscape:cy="2.993064"
+     inkscape:window-width="1710"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="43"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <path
+     d="M72.1362 26.3182C53.2271 24.8636 35.7726 24.1364 16.8635 26.3182C15.4089 36.5 13.9544 49.5909 15.4089 59.7727C34.318 61.2273 54.6817 61.9545 73.5908 59.7727C75.0453 49.5909 73.5908 36.5 72.1362 26.3182Z"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path2" />
+  <path
+     d="M32.8635 27.7727C33.2999 24.1364 32.4272 19.7727 32.8635 16.1364C33.5908 11.7727 38.6817 8.86365 44.4999 8.86365C50.3181 8.86365 55.409 11.7727 56.1362 16.1364C56.5726 19.7727 55.6999 24.1364 56.1362 27.7727"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path3" />
+  <path
+     d="M15.4091 39.4091C34.3182 38.2455 54.6818 38.6818 73.5909 39.4091"
+     stroke="black"
+     stroke-width="4"
+     stroke-linecap="round"
+     id="path4" />
+  <path
+     d="M38.6817 35.0454C42.3181 34.609 46.6817 34.609 50.3181 35.0454C50.7544 37.9545 50.7544 40.8636 50.3181 43.7727C46.6817 44.209 42.3181 44.209 38.6817 43.7727C38.2453 40.8636 38.2453 37.9545 38.6817 35.0454Z"
+     fill="black"
+     id="path5" />
+</svg>
