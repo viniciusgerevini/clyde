@@ -15,6 +15,5 @@ Go to `Project > Project Settings > General > Dialogue`.
 | ----------------------- | ----------- |
 | Source Folder: | Default folder where the interpreter will look for `.clyde` files when just the filename is provided.<br/>Default: `res://dialogues/` |
 | Id Suffix Lookup Separator: | When using id suffixes, this is the separator used in the translation keys.<br/>Default. `&`.|
-| Enable Editor: | Enable main screen dialogue editor.<br/>Default: `true`|
 | Enable Helpers: | Enable the `Dialogue` singleton and config node. Default: `false` |
 

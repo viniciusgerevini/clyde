@@ -1,7 +1,8 @@
 <!--
+page_title: Usage
 nav-max: 1
 -->
-# Usage
+# Helpers Usage
 
 You can find and try out the examples the come with the plugin in the [addon examples folder](https://github.com/viniciusgerevini/godot-clyde-dialogue/tree/godot_4/addons/clyde/examples).
 
@@ -79,7 +80,7 @@ To use the [Dialogue](./1-dialogue_ref.md) singleton, you need to have a [ClydeD
 
 This node already comes pre-configured, and allows you to change most things, like which input actions to use, a custom dialogue box, and where to render the dialogue box.
 
-However, in order to be able to persist the dialogue state, you will also have to extend the node and implement the persistence yourself. Bellow is an example of a configuration to hold data in-memory.
+However, to be able to persist the dialogue state, you will also have to extend the node and implement the persistence yourself. Bellow is an example of a configuration to hold data in-memory.
 
 ```gdscript
 

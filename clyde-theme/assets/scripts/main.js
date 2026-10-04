@@ -45,76 +45,16 @@
 		}
 	}
 
-	function configureThemeSelector() {
-		const themeSelector = document.getElementById("siteThemeSelector");
-
-		function setTheme(theme, shouldUpdateSelector) {
-			let newTheme = theme;
-			if (!newTheme || newTheme === "auto") {
-				newTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-			}
-
-			document.querySelector("html").setAttribute("data-theme", newTheme);
-
-			if (shouldUpdateSelector) {
-				themeSelector.value = theme || "auto";
-			}
-		}
-
-		setTheme(localStorage.getItem("theme"), true);
-
-		themeSelector.onchange = (event) => {
-			setTheme(event.target.value);
-			localStorage.setItem("theme", event.target.value);
-		};
-
-	}
-
-	function formatVersion(version) {
-		const versionParts = version.split("-");
-		if (versionParts.length === 1)  {
-			return version;
-		}
-		return `${versionParts[0]} (Godot ${versionParts[1]})`;
-	}
-
-	async function loadVersions() {
-		const selector = document.getElementById("versionSelector");
-		if (!selector) {
-			return;
-		}
-
-		const currentVersion = selector.value;
-		selector.innerHTML = "";
-
-		try {
-			const response = await fetch(`${baseUrl}versions.json`);
-			const json = await response.json();
-
-			if (json && json.versions) {
-				const versions = json.versions.sort().reverse();
-				for (let version of versions) {
-					selector.innerHTML += `<option value="${version}" ${version === currentVersion ? 'selected="selected"' : ''}>${formatVersion(version)}</option>`
-				}
-			}
-		} catch (_e) {}
-
-		selector.onchange = (event) => {
-			const currentUrl = window.location.href;
-			const regex = new RegExp(`${currentVersion}\\/?.*`);
-			const newUrl = currentUrl.replace(regex, event.target.value);
-			window.location.href = newUrl;
-		};
-	}
-
 	configureNav();
-	configureThemeSelector();
-	loadVersions();
 }());
 
 // this is required to support prism's line numbers
 (function() {
 	document.querySelectorAll('pre').forEach(function(el) {
+		if (el.classList.values().some(c => c === "clyde-code")) {
+			el.classList.add('line-numbers');
+			return;
+		}
 		el.classList.add('line-numbers');
 		const hasLangClass = Array.from(el.classList.values()).some(c => c.startsWith("language-"));
 		if (!hasLangClass) {

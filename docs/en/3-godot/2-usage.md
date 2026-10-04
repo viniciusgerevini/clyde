@@ -2,9 +2,9 @@
 nav_max: 2
 custom_page_class: lang_ref
 -->
-# Usage
+# Interpreter's Usage
 
-In the sections bellow, it's described in detail each step to run the dialogue.
+This page describes how to use the `ClydeDialogue` interpreter. This is the recommended way to integrate with Clyde, as it provides more flexibility and freedom. Later in the [helpers](./4-helpers/) section, you will find a more opinionated way for a quicker setup.
 
 Here is a simple implementation for reference:
 
@@ -37,19 +37,17 @@ func _ready():
 # this method will be triggered by a user interaction (button, click, key press)
 func _get_next_dialogue_line():
   var content = _dialogue.get_content()
-  if content.type == "end":
-    # persisting dialogue access data
-    _dialogue_internal_data_persistence = _dialogue.get_data()
-    # do other stuff like hiding the interface, resuming inputs, ...
-    return
-
-  if content.type == 'line':
-    # Show dialogue line to player
-    # ...
-
-  if content.type == 'options':
-    # display options for player to choose from
-    # ...
+  match content.type:
+    ClydeDialogue.CONTENT_TYPE_END:
+      # persisting dialogue access data
+      _dialogue_internal_data_persistence = _dialogue.get_data()
+      # do other stuff like hiding the interface, resuming inputs, ...
+    ClydeDialogue.CONTENT_TYPE_LINE:
+      # Show dialogue line to player
+      # ...
+    ClydeDialogue.CONTENT_TYPE_OPTIONS:
+        # display options for player to choose from
+        # ...
 
 
 # this will be called when player selects an option
@@ -81,7 +79,9 @@ func _on_external_variable_update(variable_name: String, value: Variant):
 
 ```
 
-You can find and execute the complete example on the [examples folder](https://github.com/viniciusgerevini/godot-clyde-dialogue/tree/godot_4/addons/clyde/examples).
+You can find and execute the complete example in the plugin's [examples folder](https://github.com/viniciusgerevini/godot-clyde-dialogue/tree/godot_4/addons/clyde/examples).
+
+Let's break down the script above:
 
 ## Creating an object
 
@@ -91,6 +91,7 @@ You need to instantiate a `ClydeDialogue` object.
 var dialogue = ClydeDialogue.new()
 ```
 
+You can choose if you'd like to do that for every dialogue or reuse the same object. I usually instantiate a new one every time a dialogue starts, as there is no much extra cost and it ensures a clean start.
 
 ## Loading dialogues
 
@@ -152,11 +153,11 @@ Options list with options/topics the player may choose from (`Dictionary`).
 ```gdscript
 {
   "type": "options",
-  "name": "What do you want to talk about?", # optional
+  "text": "What do you want to talk about?", # optional
   "speaker": "NPC", # optional
   "options": [
     {
-    "label": "option display text",
+    "text": "option display text",
     "speaker": "NPC", # optional
     "id": "abc", # optional
     "tags": [ "some_tag" ], # optional
@@ -173,6 +174,14 @@ Returned when the dialogue reached its end. Any new subsequent call will return 
 ```gdscript
 { "type": "end" }
 ```
+
+### Object types
+
+You can check the type field from the dictionaries returned by `get_content` by their string values directly, however it's cleaner to use the constants defined in the `ClydeDialogue` class.
+
+- `ClydeDialogue.CONTENT_TYPE_LINE`
+- `ClydeDialogue.CONTENT_TYPE_OPTIONS`
+- `ClydeDialogue.CONTENT_TYPE_END`
 
 ## Listening to variable changes
 
@@ -240,7 +249,7 @@ The example above assumes there is a global object called `persistence`, which i
 
 When starting a new dialogue execution, the internal data is loaded from the `persistence` object. When the dialogue ends, we update said object with the new values.
 
-Note that the data is saved in in the dictionary under the dialogue filename key. The internal data should be used only in the same dialogue it was extracted from.
+Note that the data is saved in the dictionary under the dialogue filename key. The internal data should be used only in the same dialogue it was extracted from.
 
 You should not change this object manually. If you want't to change a variable used in the previous execution, you should use `dialogue.set_variable(name, value)`.
 
@@ -302,6 +311,6 @@ dialogue.load_dialogue("res://samples/banana.clyde")
 
 ## More examples
 
-You can find more usage examples on the [examples](https://github.com/viniciusgerevini/godot-clyde-dialogue/tree/godot_4/addons/clyde/examples) folder.
+You can find more usage examples on the plugin's [examples](https://github.com/viniciusgerevini/godot-clyde-dialogue/tree/godot_4/addons/clyde/examples) folder.
 
 

@@ -1,8 +1,10 @@
 <nav class="side-nav">
   <a class="nav-logo" href="{{navigationMenu.path}}">
-    <img src={{ assetImage "icon.png" }} alt="Clyde Dialogue Icon"/>
+    <img src={{ assetImage "clyde_logo.svg" }} alt="Clyde Dialogue Icon"/>
     Clyde
   </a>
+
+  <hr class="wavy-line"/>
 
   <ul class="nav-menu" id="mainNav">
     <li class="nav-item nav-level-{{level}} {{getNavClassWhenCurrent navigationMenu.path @root.currentFilePath}}">
@@ -13,4 +15,14 @@
        {{> side-navigation-section }}
     {{/each}}
   </ul>
+
+  {{!-- <div class="site-config"> --}}
+  {{!--   <div class="selector site-theme-selector"> --}}
+  {{!--     <select name="theme" id="siteThemeSelector"> --}}
+  {{!--       <option value="auto">Auto</option> --}}
+  {{!--       <option value="light">Light</option> --}}
+  {{!--       <option value="dark">Dark</option> --}}
+  {{!--     </select> --}}
+  {{!--   </div> --}}
+
 </nav>

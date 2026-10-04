@@ -19,10 +19,10 @@ generate_doc_index=false
 
 # Include version in the URL
 # default: true
-enable_versions=true
+enable_versions=false
 
 # Documentation version (files will be nested in this folder)
-version_to_publish="latest"
+# version_to_publish="latest"
 
 # When enabled the first folder level are the locales roots
 # and each locale root has independent navigation
@@ -36,3 +36,7 @@ default_locale="en"
 # so navigation links can point to the correct section of the page.
 #This property defines a prefix to reduce the chance of conflict with user defined anchors.
 anchor_prefix="sp-"
+
+renderer_extension_file="./build/render_overrides.js"
+
+asset_pipeline_file="./build/assets_proc.js"

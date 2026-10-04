@@ -5,7 +5,7 @@ custom_page_class: lang_ref
 
 Nesting content can get messy real quick. An alternative is to group your content in blocks `== BLOCK NAME`, and use diverts `-> BLOCK_NAME` to link them. `BLOCK_NAME` should be `[A-Za-z0-9_- ]`.
 
-```
+```clyde
 What do you want to talk about?
     * Life
       -> talk about life
@@ -14,18 +14,20 @@ What do you want to talk about?
     * Everything else...
       -> talk about everything else
 
+
 == talk about life
 player: I want to talk about life!
 npc: Well! That's too complicated...
+
 
 == talk about the universe
 player: I want to talk about the universe!
 npc: That's too complex!
 
+
 == talk about everything else
 player: What about everything else?
 npc: I don't have time for this...
-
 ```
 
 ``` javascript
@@ -49,16 +51,14 @@ npc: I don't have time for this...
 { type: 'line', speaker: 'npc', text: "That's too complex!" }
 ```
 
-Blocks also allow you to have multiple dialogues in the same file and run them independently from each other.
+Blocks also allow you to have multiple dialogues in the same file and run them independently from each other. Your interpreter should have a method `start` that accepts a block name, so you can choose to start your dialogue at any block by calling `dialogue.start(block_name)`;
 
 ## Divert to parent
 
-You can use `<-` to divert back to the parent block or parent option list.
+You can use `<-` to divert back to the caller block or parent option list.
 
-By default, blocks do not return to their callers.
-
-Because of that, in the following example, the `npc: Let's continue...` line will never be called.
-```
+By default, blocks do not return to their callers. In the following example, the `npc: Let's continue...` line will never be called, because the dialogue ends when reaching the end of the block.
+```clyde
 npc: What do you want to do?
 
 -> talk about life
@@ -75,7 +75,7 @@ npc: Well! That's too complicated...
 
 To resume the progression on the caller block, you should use a divert to parent `<-`.
 
-```
+```clyde
 npc: What do you want to do?
 
 -> talk about life
@@ -90,9 +90,9 @@ npc: Well! That's too complicated...
 
 ```
 
-Diverts to parent can also be used in the options list, to allow the player to go through all options if they wish to.
+Diverts to parent can also be used in options blocks to allow the player to go back to the list.
 
-```
+```clyde
 What do you want to talk about?
     * Life
       -> talk about life
@@ -128,7 +128,7 @@ npc: I don't have time for this...
 
 You can join both diverts together in the same line for a cleaner look:
 
-```
+```clyde
 What do you want to talk about?
     * Life
       -> talk about life <-
@@ -144,7 +144,7 @@ What do you want to talk about?
 
 By default, the dialogue ends when it reaches a point with no next line available.  But you can also end a dialogue earlier by using `-> END`.
 
-```
+```clyde
 Do you wish to continue?
     + Yes
     + Maybe

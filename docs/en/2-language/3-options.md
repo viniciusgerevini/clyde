@@ -4,10 +4,12 @@ custom_page_class: lang_ref
 -->
 # Options (a.k.a branches)
 
-To define options or branches you can use `*` (single use), `+` (sticky) or `>` (fallback).
+Options are how you do branching dialogues. You can use it to ask a question, or give the player a list of topics to choose from.
+
+To define options you can use `*` (single use), `+` (sticky) or `>` (fallback).
 
 ## Simple options
-```
+```clyde
 * yes
   Let's do this!
 * no
@@ -36,11 +38,10 @@ Output:
 { type: 'line', text: 'continue'}
 ```
 
-### Your options may be single lines:
+### Returning options text as dialogue lines:
 
-By default, option labels are not returned as content. If you want to return a label, you can
-use the option display character `=`:
-```
+By default, option labels are not returned as dialogue lines. If you wish to return them, you can use the option display character `=`:
+```clyde
 *= yes
 *= no
 
@@ -67,8 +68,44 @@ Output:
 { type: 'line', text: 'continue'}
 ```
 
-### It may contain multiple lines:
+## Options title
+
+You can define a text to be returned with your options list by indenting its definition:
+
+```clyde
+Do you like turtles?
+    *= Yes
+    *= No
 ```
+
+Output
+
+```javascript
+// get content
+{
+    type: 'options',
+    text: 'Do you like turtles?',
+    options: [
+        { text: 'Yes' },
+        { text: 'No' }
+    ]
+}
+
+// choose 0
+
+// get content
+{ type: 'line', text: 'Yes'}
+```
+
+This is useful for providing more context to the option list. Specially useful when your UI uses a single bubble mode and doesn't show previous dialogue lines.
+
+### Nested content
+
+Any content can be nested inside an option. Such as
+
+Multiple lines:
+
+```clyde
 * I need to think about that
     some line
     some other line
@@ -100,11 +137,9 @@ Output
 continue
 ```
 
-## Nested options
+Other options:
 
-Options can be nested:
-
-```
+```clyde
 * Option a - has nested options
     *= Yes
     * No
@@ -148,40 +183,13 @@ Output
 { type: 'line', text: 'continue'}
 ```
 
-## Options list's title
-
-Depending on how you show your dialogue, your options list may lose its context. To prevent that, you can define titles for your options list by indenting its block.
-
-```
-Do you like turtles?
-    *= Yes
-    *= No
-```
-
-Output
-
-```javascript
-// get content
-{
-    type: 'options',
-    text 'Do you like turtles?',
-    options: [
-        { text: 'Yes' },
-        { text: 'No' }
-    ]
-}
-
-// choose 0
-
-// get content
-{ type: 'line', text: 'Yes'}
-```
+In a later section we will talk about blocks and diverts, which mitigate the need of too much nesting.
 
 ## Sticky options
 
-Option's default behaviour is to be removed from the list once used, but this is not always the desired behaviour. To keep the option always visible, you can use `+` for sticky options.
+Options defined with `*` are single use. This means they are removed from the list once selected. To keep an option always visible you need to define it with `+` for sticky options.
 
-```
+```clyde
 + Option a
     A
 * Option b
@@ -211,7 +219,7 @@ Output
 {
     type: 'options',
     options: [
-        { text: 'Option a' },
+        { text: 'Option a' }, // option a is still in the list
         { text: 'Option b' },
     ]
 }
@@ -220,14 +228,13 @@ Output
 
 ## Fallback options
 
-A fallback option (`>`) is an option that is executed automatically when there is no other option available. When more than one option is available, it behaves like a sticky option.
+A fallback option (`>`) is an option that is executed automatically when there is no other option available. When more than one option is available, it behaves like a sticky option (can be selected multiple times).
 
-```
+```clyde
 * Let's talk about it.
     A
 > That's all for today.
     B
-
 ```
 
 Output
@@ -252,5 +259,5 @@ Output
 { type: 'line', text: 'B'}
 
 ```
-In the example above, after the first option is used, the only option remaining is a fallback option. The next time content is requested the fallback option's content is returned without the need of selecting the option.
+In the example above, after the first option is used, the only option remaining is a fallback option. The next time content is requested the fallback option's content is returned without the need to select anything.
 

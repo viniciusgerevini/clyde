@@ -4,26 +4,13 @@ custom_page_class: lang_ref
 -->
 # Basics
 
-## Comments
-
-To ignore a line you can use `--`.
-
-```
--- this line is ignored
-this line isn't
-```
-Output:
-
-```javascript
-// get content
-{ type: "line", text: "this line isn't" }
-```
+Here are the basics for writting dialogues. One important thing to note is that in the Clyde language line breaks and indentation matter.
 
 ## Dialogue line
 
 Each line becomes a dialogue line:
 
-```
+```clyde
 This is a simple text!
 This is another line.
 ```
@@ -39,9 +26,9 @@ Output:
 
 ## Grouping lines
 
-If you want to group multiple lines in one call, you just need to indent the subsequent lines. You can choose to use spaces or tabs (or even both, however, I don't recommend that):
+If you want to group multiple lines in one call, you just need to indent the subsequent lines. You can choose to use spaces or tabs:
 
-```
+```clyde
 This is the first dialogue line.
     This is still the first dialogue line.
 But this is the second line.
@@ -60,7 +47,7 @@ Output:
 
 Use `:` to set a line speaker. Anything from the beginning of the line to `:`(colon) is used as speaker.
 
-```
+```clyde
 Hagrid: Harry, yer a wizard.
 Harry Potter: I'm a what?
 ```
@@ -75,9 +62,9 @@ Output:
 ```
 
 When defining multiple lines with same speaker, you can set the same speaker for all lines
-by indenting them after the speaker:
+by indenting them after the speaker definition:
 
-```
+```clyde
 Vinny:
     Multiple lines can be set with same speaker.
     You just need to indent them after the speaker line.
@@ -99,7 +86,7 @@ Output:
 
 Use `$` + `[A-Za-z0-9_]` to set a line id:
 
-```
+```clyde
 Hagrid: Harry, yer a wizard. $line001
 Harry Potter: I'm a what? $line_02
 ```
@@ -123,11 +110,17 @@ Id Suffixes aim to improve translations and dynamic lines. They allow you to use
 different keys from a dictionary based on values from variables in runtime.
 
 Here is an example. For the given dialogue:
-```
+```clyde
 Hello, sister! $line001&player_pronoun
 ```
 
-If the variable `player_pronoun` is set as `F`, the translation lookup will happen in this order: `line001&F`, `line001` and then it falls back to the default line. Multiple suffixes can be set by chaining the variables: `$line001&variable_1&variable_2`.
+If the variable `player_pronoun` is set as `F`, the translation lookup will happen in this order:
+
+1. `line001&F` (line id with prefix value)
+1. `line001` (line id)
+1. Falls back to the default line from the dialogue file.
+
+Multiple suffixes can be set by chaining variables: `$line001&variable_1&variable_2`.
 
 This can also be used to simplify dialogue files. If you have a dictionary like this:
 ```
@@ -136,21 +129,23 @@ LINE_001&F;Hello, sister.
 LINE_001&M;Hello, brother.
 ```
 You could change your dialogue from this:
-```
+```clyde
 Hello, sister.  $LINE_001 { when pronoun is "F" }
 Hello, brother. $LINE_002 { when pronoun is "M" }
 Hello, friend.  $LINE_003 { when not pronoun }
 ```
 To this:
-```
+```clyde
 Hello, sister. $LINE_001&pronoun
 ```
 
+Note: The logic between `{ }` in the example above is a conditional block, which will be covered in the logic blocks section.
+
 ## Tags
 
-Use `#` + `[A-Za-z0-9_\-\.]` to set line tags:
+Use `#` + `[A-Za-z0-9_-.]` to set line tags:
 
-```
+```clyde
 WHAT DID YOU DO! #yelling #scared
 ```
 
@@ -164,9 +159,9 @@ Tags are useful metadata that can be used as you wish. Probably the most obvious
 
 ## Escaping characters
 
-If you need to use special characters in your dialogue, you can scape them by using `\` or surrounding your text with quotes:
+If you need to use special characters in your dialogue, you can scape them by using `\` or surrounding your text in quotes:
 
-```
+```clyde
 It will cost you \$100.
 "This is an example: ##"
 'This is another example: ##'
@@ -186,5 +181,20 @@ Output:
 
 // get content
 { type: 'line', text: 'You can even escape " inside ""'}
+```
+
+## Comments
+
+To ignore a line you can use `--`.
+
+```clyde
+-- this line is ignored
+this line isn't
+```
+Output:
+
+```javascript
+// get content
+{ type: "line", text: "this line isn't" }
 ```
 

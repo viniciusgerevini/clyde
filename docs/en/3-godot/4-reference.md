@@ -5,9 +5,7 @@ custom_page_class: code_ref
 
 This plugin exposes the interpreter as `ClydeDialogue`.
 
-The interpreter is simple, yet powerfull. The plugin also provide some [helpers](./3-helpers.md) for quick start. However, I recommend reading about the core interpreter first, to understand how things work.
-
-For details about the language, check [the language reference page](../2-language/index.md).
+The interpreter is simple, yet powerfull. The plugin also provides some [helpers](./3-helpers.md) for quick start. However, I recommend reading about the core interpreter first, to understand how things work.
 
 ## Methods
 

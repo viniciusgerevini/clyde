@@ -7,7 +7,8 @@
     --prism-line-number-color: #999;
     --prism-font-color: black;
     /*--prism-boarder-color: #358ccb;*/
-    --prism-boarder-color: rgb(215, 133, 101);
+    /* TODO fix this variable name */
+    --prism-boarder-color: #e58b79;
     --prism-shadown-color: #dfdfdf;
     /*--prism-bg-linear-gradient-color: rgba(69, 142, 209, 0.04);*/
     --prism-bg-linear-gradient-color: rgba(209, 69, 69, 0.04);
@@ -59,7 +60,7 @@ code[class*="language-"],
 pre[class*="language-"] {
     color: var(--prism-font-color);
     background: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: Geist Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
     text-align: left;
     white-space: pre;
@@ -81,7 +82,7 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
     position: relative;
-    border-left: 10px solid var(--prism-boarder-color);
+    border-left: 4px solid var(--prism-boarder-color);
     box-shadow: -1px 0 0 0 var(--prism-boarder-color), 0 0 0 1px var(--prism-shadown-color);
     background-color: var(--prism-pre-bg-color);
     background-image: linear-gradient(transparent 50%, var(--prism-bg-linear-gradient-color) 50%);
@@ -90,6 +91,7 @@ pre[class*="language-"] {
     background-attachment: local;
     margin: .5em 0;
     padding: 0 1em;
+    border-radius: 10px;
 }
 
 pre[class*="language-"] > code {
@@ -191,12 +193,12 @@ pre[class*="language-"] > code {
 }
 
 /** Plugin styles **/
-pre[class*="language-"].line-numbers {
+pre[class*="language-"].line-numbers, .clyde-code.line-numbers {
     position: relative;
     padding-left: 3.8em;
     counter-reset: linenumber;
 }
-pre[class*="language-"].line-numbers > code {
+pre[class*="language-"].line-numbers > code, .clyde-code.line-numbers > code {
     position: relative;
     white-space: inherit;
 }
