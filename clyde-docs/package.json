@@ -3,7 +3,8 @@
   "scripts": {
     "build:interpreter": "rollup -c",
     "build:docs": "shromp build",
-    "build:languageref": "node ./build/create_language_docs_md.js"
+    "build:languageref": "node ./build/create_language_docs_md.js",
+    "serve": "http-server ./public/"
   },
   "dependencies": {
     "@clyde-lang/interpreter": "^5.0.1",
@@ -17,5 +18,8 @@
     "rollup": "^4.63.4",
     "rollup-plugin-polyfill-node": "^0.13.0",
     "shromp": "^0.1.1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }
